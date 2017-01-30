@@ -1,0 +1,45 @@
+---
+- name: Add Jenkins apt repository key
+  apt_key:
+    url: "{{ jenkins_repo_key_url }}"
+    state: present
+
+- name: Add Jenkins apt repository
+  apt_repository:
+    repo: "{{ jenkins_repo_url }}"
+    state: present
+    update_cache: yes
+
+- name: Install Jenkins
+  apt: pkg=jenkins={{jenkins_version}} state=installed
+
+- name: Add Ansible apt repository
+  apt_repository:
+    repo: "ppa:ansible/ansible"
+    state: present
+    update_cache: yes
+
+- name: Install Ansible
+  apt: pkg=ansible state=installed
+
+- name: Install pip
+  apt: pkg=python-pip state=installed
+
+- name: Install Boto
+  pip: name=boto
+
+- name: Get the jenkins-cli jarfile from the Jenkins server
+  get_url:
+    url: "http://{{ jenkins_hostname }}:8080/jnlpJars/jenkins-cli.jar"
+    dest: "{{ jenkins_jar_location }}"
+  register: jarfile_get
+  until: "'OK' in jarfile_get.msg or 'file already exists' in jarfile_get.msg"
+  retries: 5
+  delay: 10
+
+- name: Copy environment variables file
+  copy:
+    src={{config_path}}/envVars.properties
+    dest="{{ jenkins_directory }}/"
+    owner=jenkins
+    group=jenkins

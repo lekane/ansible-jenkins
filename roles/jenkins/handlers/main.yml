@@ -1,0 +1,11 @@
+---
+- name: restart jenkins
+  service: name=jenkins state=restarted
+  register: jenkins_restarted
+  become: true
+
+- name: reload jenkins
+  command: >
+    java -jar {{ jenkins_jar_location }} -s http://{{ jenkins_hostname }}:8080/ -i {{ jenkins_directory }}/.ssh/id_rsa reload-configuration
+  when: jenkins_restarted is not defined
+  become: true

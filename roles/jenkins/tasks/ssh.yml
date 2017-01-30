@@ -1,0 +1,25 @@
+---
+- name: Ensure .ssh directory exists
+  file:
+    path="{{ jenkins_directory }}/.ssh"
+    state=directory
+    owner=jenkins
+    group=jenkins
+
+- name: Copy ssh keys
+  copy:
+    src="{{ item }}"
+    dest="{{ jenkins_directory }}/.ssh/"
+    owner=jenkins
+    group=jenkins
+    mode=0600
+  with_fileglob:
+    - "{{ config_path }}/ssh/*"
+
+- name: Copy ssh config
+  copy:
+    src={{config_path}}/ssh.config
+    dest="{{ jenkins_directory }}/.ssh/config"
+    owner=jenkins
+    group=jenkins
+    mode=0640

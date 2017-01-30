@@ -1,0 +1,95 @@
+---
+jenkins_connection_delay: 5
+jenkins_connection_retries: 60
+jenkins_hostname: localhost
+jenkins_jar_location: /opt/jenkins-cli.jar
+jenkins_directory: /var/lib/jenkins
+jenkins_plugins:
+  - ace-editor
+  - ant
+  - antisamy-markup-formatter
+  - authentication-tokens
+  - aws-java-sdk
+  - bouncycastle-api
+  - branch-api
+  - build-timeout
+  - build-timestamp
+  - cloudbees-folder
+  - copyartifact
+  - credentials
+  - credentials-binding
+  - display-url-api
+  - docker-build-step
+  - docker-commons
+  - durable-task
+  - email-ext
+  - envinject
+  - external-monitor-job
+  - git
+  - git-client
+  - git-server
+  - github
+  - github-api
+  - github-branch-source
+  - github-organization-folder
+  - golang
+  - gradle
+  - greenballs
+  - handlebars
+  - icon-shim
+  - jackson2-api
+  - javadoc
+  - jquery-detached
+  - junit
+  - ldap
+  - mailer
+  - mapdb-api
+  - matrix-auth
+  - matrix-project
+  - maven-plugin
+  - momentjs
+  - nodejs
+  - pam-auth
+  - pipeline-build-step
+  - pipeline-graph-analysis
+  - pipeline-input-step
+  - pipeline-milestone-step
+  - pipeline-rest-api
+  - pipeline-stage-step
+  - pipeline-stage-view
+  - plain-credentials
+  - postbuildscript
+  - publish-over-ssh
+  - resource-disposer
+  - robot
+  - s3
+  - scm-api
+  - scm-sync-configuration
+  - script-security
+  - ssh
+  - ssh-agent
+  - ssh-credentials
+  - ssh-slaves
+  - structs
+  - subversion
+  - timestamper
+  - token-macro
+  - windows-slaves
+  - workflow-aggregator
+  - workflow-api
+  - workflow-basic-steps
+  - workflow-cps
+  - workflow-cps-global-lib
+  - workflow-durable-task-step
+  - workflow-job
+  - workflow-multibranch
+  - workflow-scm-step
+  - workflow-step-api
+  - workflow-support
+  - ws-cleanup
+  - xvfb
+  - zentimestamp
+
+jenkins_repo_url: deb http://pkg.jenkins-ci.org/debian-stable binary/
+jenkins_repo_key_url: http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key
+jenkins_version: 2.32.1

@@ -1,0 +1,10 @@
+---
+- name: Copy custom configuration files
+  copy:
+    src="{{ item }}"
+    dest="{{ jenkins_directory }}/"
+    owner=jenkins
+    group=jenkins
+  with_fileglob:
+    - "{{ config_path }}/config/*"
+  notify: reload jenkins

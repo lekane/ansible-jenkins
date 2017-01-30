@@ -1,0 +1,12 @@
+---
+- name: Install robot framework
+  pip: name=robotframework
+
+- name: Install Selenium2Library
+  pip: name=robotframework-selenium2library
+
+- name: Install xvfb
+  apt: name=xvfb
+
+- name: Install firefox
+  apt: name=firefox

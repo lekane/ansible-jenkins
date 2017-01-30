@@ -1,0 +1,6 @@
+---
+- hosts:
+    - jenkins
+  roles:
+    - { role: jenkins, become: true }
+    # become_method: sudo

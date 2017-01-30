@@ -1,0 +1,18 @@
+---
+- name: Create Jenkins job directories
+  file: 
+    path="{{ jenkins_directory }}/jobs/{{item}}"
+    state=directory
+    owner=jenkins
+    group=jenkins
+  with_items: "{{ jenkins_jobs }}"
+
+- name: Copy Jenkins job configurations
+  copy: 
+    src={{config_path}}/jobs/{{item}}.xml
+    dest=/var/lib/jenkins/jobs/{{item}}/config.xml
+    owner=jenkins 
+    group=jenkins 
+    mode=0644
+  with_items: "{{ jenkins_jobs }}"
+  notify: reload jenkins

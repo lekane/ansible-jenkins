@@ -1,0 +1,6 @@
+---
+- name: Retrieve Jenkins unlock code
+  shell: "cat /var/lib/jenkins/secrets/initialAdminPassword"
+  register: jenkins_unlock
+
+- debug: msg="Jenkins unlock code (install admin password) is {{ jenkins_unlock.stdout }}"
