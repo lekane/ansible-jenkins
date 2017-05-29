@@ -33,7 +33,7 @@ Run ansible script in pre-install mode:
 
 Jenkins 2.X requires some post install steps, so do the following:
 
-* Access Jenkins at http://<server>:8080
+* Access Jenkins at http://server:8080
 * Get unlock code from Ansible log (or `/var/lib/jenkins/secrets/initialAdminPassword`) and unlock Jenkins
 * Select "Install selected plugins"
 * Setup a Jenkins user

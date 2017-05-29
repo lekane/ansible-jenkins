@@ -11,7 +11,7 @@
     update_cache: yes
 
 - name: Install Jenkins
-  apt: pkg=jenkins={{jenkins_version}} state=installed
+  apt: "pkg=jenkins={{jenkins_version}} state=installed"
 
 - name: Add Ansible apt repository
   apt_repository:
@@ -39,7 +39,7 @@
 
 - name: Copy environment variables file
   copy:
-    src={{config_path}}/envVars.properties
+    src="{{config_path}}/envVars.properties"
     dest="{{ jenkins_directory }}/"
     owner=jenkins
     group=jenkins
