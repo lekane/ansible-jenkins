@@ -92,4 +92,4 @@ jenkins_plugins:
 
 jenkins_repo_url: deb http://pkg.jenkins-ci.org/debian-stable binary/
 jenkins_repo_key_url: http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key
-jenkins_version: 2.32.3
+jenkins_version: 2.46.3
