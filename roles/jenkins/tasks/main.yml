@@ -3,6 +3,7 @@
 - include: setup.yml
 - include: ssh.yml
 - include: tools.yml
+- include: cli53.yml
 
 - include: plugins.yml
   when: pre_install | default(false) == false
