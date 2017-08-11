@@ -5,13 +5,13 @@
 - include: tools.yml
 
 - include: plugins.yml
-  when: "{{ pre_install | default(false) }} == false"
+  when: pre_install | default(false) == false
 
 - include: jobs.yml
-  when: "{{ pre_install | default(false) }} == false"
+  when: pre_install | default(false) == false
 
 - include: config.yml
-  when: "{{ pre_install | default(false) }} == false"
+  when: pre_install | default(false) == false
 
 - include: pre_install.yml
-  when: "{{ pre_install | default(false) }} == true"
+  when: pre_install | default(false) == true

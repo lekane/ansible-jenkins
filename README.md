@@ -16,12 +16,13 @@ Config backup and recovery should be managed by SCM Sync Configuration plugin
     * config_path (path to Jenkins configuration & resources directory)
     * jenkins_jobs (list of jobs to install)
     * jenkins_custom_plugins (list of extra plugins to install)
+    * jenkins_smc_sync_config_path (path to clone of scm sync plugin's repo) [optional]
 * Configuration under `config_path` directory with the following:
     * envVars.properties (environment variables)
     * ssh/id_rsa (Jenkins ssh private key)
     * ssh/id_rsa.pub (Jenkins ssh public key)
     * ssh/config (ssh configuration) [optional]
-    * config/*.xml (custom configuration) [optional]
+    * config/*.xml (custom configuration, if jenkins_smc_sync_config_path is undefined) [optional]
     * jobs/*.xml (job config files) [optional]
 
 # Jenkins installation

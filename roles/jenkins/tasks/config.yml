@@ -1,4 +1,8 @@
 ---
+- name: jenkins_smc_sync_config_path is undefined, defaulting to {{ config_path }}/config
+  set_fact: jenkins_smc_sync_config_path={{ config_path }}/config
+  when: jenkins_smc_sync_config_path is not defined
+
 - name: Copy custom configuration files
   copy:
     src="{{ item }}"
@@ -6,5 +10,5 @@
     owner=jenkins
     group=jenkins
   with_fileglob:
-    - "{{ config_path }}/config/*"
+    - "{{ jenkins_smc_sync_config_path }}/*.xml"
   notify: reload jenkins
