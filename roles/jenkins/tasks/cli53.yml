@@ -1,20 +1,9 @@
 ---
-- name: Install golang
-  apt: name=golang
 
-- name: Compile cli53
-  command: go get github.com/barnybug/cli53/cmd/cli53
-  environment:
-      GOPATH: /home/ubuntu/go
-  remote_user: ubuntu
-
-- name: Install cli53
-  copy:
-      remote_src: yes
-      src: /home/ubuntu/go/bin/cli53
-      dest: /usr/local/bin
-      owner: root
-      group: root
-      mode: 755
-
-# optional: remove golang
+- name: Download cli53
+  get_url:
+    url: "https://github.com/barnybug/cli53/releases/download/{{ cli53_version }}/cli53-linux-amd64"
+    dest: /usr/local/bin/cli53
+    mode: 755
+    owner: root
+    mode: 755
