@@ -94,3 +94,5 @@ jenkins_repo_url: deb http://pkg.jenkins-ci.org/debian-stable binary/
 jenkins_repo_key_url: http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key
 jenkins_version: 2.32.3
 cli53_version: 0.8.13
+cli53_base_url: https://github.com/barnybug/cli53/releases/download
+cli53_binary_variant: cli53-linux-amd64

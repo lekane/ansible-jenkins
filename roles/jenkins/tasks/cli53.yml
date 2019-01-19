@@ -2,7 +2,7 @@
 
 - name: Download cli53
   get_url:
-    url: "https://github.com/barnybug/cli53/releases/download/{{ cli53_version }}/cli53-linux-amd64"
+    url: "{{ cli53_base_url }}/{{ cli53_version }}/{{ cli53_binary_variant }}"
     dest: /usr/local/bin/cli53
     mode: 755
     owner: root
